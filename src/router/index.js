@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import ArmyDetails from '../views/ArmyDetails.vue'
-import Battle from '../views/Battle.vue'
-import UploadArmy from '../views/UploadArmy.vue'
-import BattleHistory from '../views/BattleHistory.vue'
-import BattleResult from '../views/BattleResult.vue'
+import Home from '@/views/Home.vue'
+import ArmyDetails from '@/views/ArmyDetails.vue'
+import Battle from '@/views/Battle.vue'
+import UploadArmy from '@/views/UploadArmy.vue'
+import BattleHistory from '@/views/BattleHistory.vue'
+import BattleResult from '@/views/BattleResult.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,52 +15,43 @@ const routes = [
     component: Home
   },
   {
-    path: '/droidarmy',
-    name: 'droidarmy',
+    path: '/droid',
+    name: 'droid',
     component: ArmyDetails
 
   },
   {
-    path: '/tropperarmy',
-    name: 'troppersarmy',
+    path: '/troopers',
+    name: 'troopers',
     component: ArmyDetails
 
   },
   {
-    path: '/addtroppersarmy',
-    name: 'addtropperarmy',
+    path: '/troopers/add',
+    name: 'addtroopersarmy',
     component: UploadArmy
   },
   {
-    path: '/adddroidarmy',
+    path: '/droid/add',
     name: 'adddroidarmy',
     component: UploadArmy
   },
   {
-    path: '/battleground',
+    path: '/battle',
     name: 'battleground',
     component: Battle
 
   },
   {
-    path: '/battlehistory',
-    name: 'battlehistory',
+    path: '/battle/history',
+    name: 'history',
     component: BattleHistory
   },
   {
-    path: '/battleresult',
-    name: 'battleresult',
+    path: '/battle/result',
+    name: 'result',
     component: BattleResult
   }
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: About
-  //   // () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
 ]
 
 const router = new VueRouter({

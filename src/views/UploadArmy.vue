@@ -170,9 +170,9 @@ export default {
       this.remove()
     },
     checktype (_link) {
-      if (_link === 'addtropperarmy') {
+      if (_link === 'troopers/add') {
         return true
-      } else if (_link === 'adddroidarmy') {
+      } else if (_link === 'droid/add') {
         return false
       } else {
         alert('sorry')
@@ -192,8 +192,8 @@ export default {
         } else {
           this.ruleForm.imageUrl = '@/../assets/images/droidarmy/soliders.png'
         }
-        this.$store.state.armydata = this.ruleForm
-        await this.$store.dispatch('uploadarmy')
+        this.$store.state.armyData = this.ruleForm
+        await this.$store.dispatch('uploadArmy')
         this.$router.push('/')
       }
     }
@@ -203,7 +203,7 @@ export default {
     if (route === 'adddroidarmy') {
       this.color = 'red'
       this.ruleForm.Type = 'Droid'
-    } else if (route === 'addtropperarmy') {
+    } else if (route === 'addtroopersarmy') {
       this.color = 'blue'
       this.ruleForm.Type = 'Troppers'
     }

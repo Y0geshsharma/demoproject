@@ -2,13 +2,13 @@
   <div class="home">
     <p class="title">Game of Clones</p>
     <div class="main">
-      <div @click="sendData(Droid,'droidarmy')">
+      <div @click="sendData(Droid,'droid')">
         <ArmyCard v-bind:sendDetail="Droid"/>
       </div>
-      <div class="battle-btn" @click="sendData(Droid,'battleground')">
+      <div class="battle-btn" @click="sendData(Droid,'battle')">
       <p>New Battle</p>
       </div>
-      <div @click="sendData(Tropper,'tropperarmy')">
+      <div @click="sendData(Tropper,'troopers')">
         <ArmyCard v-bind:sendDetail="Tropper"  />
       </div>
     </div>
@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     sendData (troops, link) {
-      this.$store.state.armyint = this.$store.state.armyint.concat([troops])
+      this.$store.state.armyInt = this.$store.state.armyInt.concat([troops])
       this.$router.push(link)
     }
   }

@@ -20,7 +20,7 @@ export default {
   computed: {
     ...mapState({
       historydata: state => {
-        return state.BattleHistory
+        return state.battleHistory
       }
     })
   },
@@ -30,7 +30,6 @@ export default {
   watch: {
     historydata: {
       handler (val) {
-        console.log(val)
         this.Historydata = val
       }
     }

@@ -6,13 +6,13 @@
 <el-row class="battleground">
     <div class="main-battle">
         <div v-for="(army,index) in droidsTroops" v-bind:key="index" class="droid">
-            <BattleCard :hdata="army" @change="changecount"/>
+            <BattleCard :historyData="army" @change="changecount"/>
         </div>
     </div>
     <el-row class='button-grp'>
         <button @click="totaltroops" style="background: blue;marginRight:10px;padding:5px"><i class="el-icon-files"></i>Assemble</button>
         <button @click="postcount" style= "background: blue;marginRight:10px;padding:5px "> <i class="el-icon-video-play"></i> Fight</button>
-        <button @click="gotohome" style="background:blue;marginRight:10px;padding:5px "><i class="el-icon-s-home"></i>Home</button>
+        <button @click="gotoHome" style="background:blue;marginRight:10px;padding:5px "><i class="el-icon-s-home"></i>Home</button>
     </el-row>
 </el-row>
 </el-row>
@@ -21,7 +21,7 @@
 import { mapState } from 'vuex'
 import BattleCard from '@/components/BaattleCard.vue'
 export default {
-  name: 'battle',
+  name: 'Battle',
   components: {
     BattleCard
   },
@@ -39,7 +39,7 @@ export default {
   computed: {
     ...mapState({
       droidatbattle: state => {
-        return state.DroidArmy
+        return state.droid
       }
     })
   },
@@ -58,7 +58,7 @@ export default {
         }
       }
     },
-    gotohome () {
+    gotoHome () {
       this.$router.push({ name: 'home' })
     },
     totaltroops () {
@@ -80,7 +80,7 @@ export default {
       if (this.totalcount !== 0 && this.toggle) {
         this.$store.state.count = this.totalcount
         await this.$store.dispatch('uploadCount')
-        this.$router.push('battleresult')
+        this.$router.push('battle/result')
       }
     }
   },

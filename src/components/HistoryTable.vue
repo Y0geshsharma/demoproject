@@ -10,7 +10,7 @@
     <el-table-column  prop="time" label="Time of battle">  </el-table-column>
   </el-table>
 <div style="position:fixed;bottom:0;right:0;color:white;font-size:50px">
-  <i class="el-icon-s-home"  @click="gotohome"></i>
+  <i class="el-icon-s-home"  @click="gotoHome"></i>
 </div>
 </div>
 </template>
@@ -18,7 +18,7 @@
 export default {
   props: ['hdata'],
   methods: {
-    gotohome () {
+    gotoHome () {
       this.$router.push('/')
     }
   }

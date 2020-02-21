@@ -1,88 +1,93 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
-import { QUERRY } from './constant'
+import { QUERY } from './constant'
 Vue.use(Vuex)
+Vue.notify({
+  group: 'foo',
+  title: 'Important message',
+  text: 'Hello user! This is a notification!'
+})
 export const store = new Vuex.Store({
   state: {
-    armyint: [],
-    DroidArmy: [],
-    TroopersArmy: [],
-    BattleResult: [],
-    BattleHistory: [],
+    armyInt: [],
+    droid: [],
+    trooper: [],
+    battleResult: [],
+    battleHistory: [],
     count: null,
-    imgurl: '',
-    armydata: []
+    imgURL: '',
+    armyData: []
   },
   actions: {
     getDroid ({ commit }) {
       Axios
-        .get(QUERRY.GET_DROID)
+        .get(QUERY.GET_DROID)
         .then(data => {
           let post = data.data
           commit('SET_DROID', post)
         })
-        .catch(error => { console.log(error) })
+        .catch(error => { alert(error) })
     },
-    getTropper ({ commit }) {
+    getTrooper ({ commit }) {
       Axios
-        .get(QUERRY.GET_TROPPER)
+        .get(QUERY.GET_TROOPER)
         .then(data => {
           let post = data.data
-          commit('SET_TROPPER', post)
+          commit('SET_TROOPER', post)
         })
-        .catch(error => { console.log(error) })
+        .catch(error => { this.notify(error) })
     },
     getResult ({ commit }) {
       Axios
-        .get(QUERRY.GET_RESULT)
+        .get(QUERY.GET_RESULT)
         .then(data => {
           let post = data.data
           commit('SET_RESULT', post)
         })
-        .catch(error => { console.log(error) })
+        .catch(error => { alert(error) })
     },
     getHistory ({ commit }) {
       Axios
-        .get(QUERRY.GET_HISTORY)
+        .get(QUERY.GET_HISTORY)
         .then(data => {
           let post = data.data
           commit('SET_HISTORY', post)
         })
-        .catch(error => { console.log(error) })
+        .catch(error => { alert(error) })
     },
     uploadCount ({ commit }) {
-      let totalcount = 0
-      totalcount = this.state.count
+      let totalCount = 0
+      totalCount = this.state.count
       Axios
-        .post(QUERRY.POST_RESULT, { totalcount })
+        .post(QUERY.POST_RESULT, { totalCount })
         .then((req, res) => {
         })
-        .catch(error => { console.log(error) })
+        .catch(error => { alert(error) })
     },
-    uploadarmy ({ commit }) {
+    uploadArmy ({ commit }) {
       let data = []
-      data = this.state.armydata
+      data = this.state.armyData
       console.log('check', data)
       Axios
-        .post(QUERRY.POST_ARMY, { data })
+        .post(QUERY.POST_ARMY, { data })
         .then((req, res) => {
         })
-        .catch(error => { console.log(error) })
+        .catch(error => { alert(error) })
     }
   },
   mutations: {
     SET_DROID (state, data) {
-      state.DroidArmy = data
+      state.droid = data
     },
-    SET_TROPPER (state, data1) {
-      state.TroopersArmy = data1
+    SET_TROOPER (state, data1) {
+      state.trooper = data1
     },
     SET_RESULT (state, data2) {
-      state.BattleResult = data2
+      state.battleResult = data2
     },
     SET_HISTORY (state, data3) {
-      state.BattleHistory = data3
+      state.battleHistory = data3
     }
   }
 })

@@ -1,6 +1,6 @@
 <template>
-<div class='ArmyCard' :style={borderColor:sendDetail.color}>
-    <img :src ="`${sendDetail.img}`" alt="armyhomeimage">
+<div class='army-card' :style={borderColor:sendDetail.color}>
+    <img :src ="`${sendDetail.img}`" alt="army_home_image">
     <p :style={color:sendDetail.color} class='title'>{{sendDetail.title}}</p>
     <div class='mask' :style={background:sendDetail.color} />
 </div>
@@ -19,7 +19,7 @@ export default {
   right: 0;
   left: 0;
 }
-.ArmyCard {
+.army-card {
   position: relative;
   color: #fff;
   padding: 20px;

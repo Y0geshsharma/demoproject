@@ -1,27 +1,24 @@
 <template>
-     <div class='battle-card'>
-                <div class='army-battle-kind'>
-                    <img :src="imageurl" alt=""/>
-                </div>
+  <div class="battle-card">
+    <div class="army-battle-kind">
+      <img :src="imageurl" alt />
+    </div>
 
-                <div class='army-battle-count' style="background:red">
-                    <div>
-                        <p>{{hdata.Kind}}</p>
-                    </div>
-                    <div>
-                        <button @click="incrimentcount()">+</button>
-                        <p>{{count}}</p>
-                        <button @click="drcrimentcount()">-</button>
-                    </div>
-
-                </div>
-
-            </div>
-
+    <div class="army-battle-count" style="background:red">
+      <div>
+        <p>{{historydata.Kind}}</p>
+      </div>
+      <div>
+        <button @click="incrimentcount()">+</button>
+        <p>{{count}}</p>
+        <button @click="decrementcount()">-</button>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-  props: ['hdata'],
+  props: ['historyData'],
   data () {
     return {
       count: 0,
@@ -29,67 +26,65 @@ export default {
     }
   },
   methods: {
-    incrimentcount (num) {
+    incrementcount (num) {
       if (this.count > 6) {
         this.count = 7
       } else {
         this.count += 1
-        this.$emit('change', this.count, this.hdata.slnumber)
+        this.$emit('change', this.count, this.historydata.slnumber)
       }
       return this.count
     },
-    drcrimentcount (num) {
+    decrementcount (num) {
       if (this.count < 1) {
         this.count = 0
       } else {
         this.count -= 1
-        this.$emit('change', this.count, this.hdata.slnumber)
+        this.$emit('change', this.count, this.historydata.slnumber)
       }
       return this.count
     }
   }
 }
-
 </script>
 <style lang="scss" scoped>
-
-.battle-card{
+.battle-card {
   display: grid;
   grid-template-columns: 2fr 8fr;
-  margin:20px 10px;
+  margin: 20px 10px;
   color: #222;
   transition: 0.2s;
   animation: getin 1s;
   // opacity: 0 ;
-  &:hover{
-    transform: translateY(-2px)
+  &:hover {
+    transform: translateY(-2px);
   }
 
-  .army-battle-kind{
+  .army-battle-kind {
     background: #000;
     transform: skewX(-15deg);
     border-radius: 2px;
     height: 10vh;
-    overflow:hidden;
+    overflow: hidden;
     border: 2px solid red;
-    img{
+    img {
       object-fit: contain;
-      height:100%;
+      height: 100%;
       width: 100%;
     }
   }
-  .army-battle-count{
-    display :flex;
+  .army-battle-count {
+    display: flex;
     flex-direction: row;
     margin: 0 10px;
     background: red;
-    color:#fff;
+    color: #fff;
     transform: skewX(-15deg);
     border-radius: 2px;
-    padding:0 15px;
+    padding: 0 15px;
     justify-content: space-between;
     align-items: center;
-    & p:nth-child(2){
+    & p:nth-child(2) {
       display: flex;
       padding-left: 5%;
       font-size: 20px;
@@ -100,5 +95,4 @@ export default {
     }
   }
 }
-
 </style>

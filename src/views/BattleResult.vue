@@ -11,7 +11,7 @@
                 <p class='det'>Total Damage <span>{{result.TotalDamage}}</span></p>
                 <div class='button-grp'>
                     <button @click="gotohistory" style="background: red"> History</button>
-                    <button @click="gotohome" style="background: blue"> Home</button>
+                    <button @click="gotoHome" style="background: blue"> Home</button>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  name: 'battleresult',
+  name: 'BattleResult',
   data () {
     return {
       result: [],
@@ -28,11 +28,11 @@ export default {
     }
   },
   methods: {
-    gotohome () {
+    gotoHome () {
       this.$router.push('/')
     },
     gotohistory () {
-      this.$router.push('battlehistory')
+      this.$router.push('/battle/history')
     }
   },
   mounted () {
@@ -41,7 +41,7 @@ export default {
   computed: {
     ...mapState({
       resultdata: state => {
-        return state.BattleResult
+        return state.battleResult
       }
     })
   },
