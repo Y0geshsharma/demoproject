@@ -170,9 +170,10 @@ export default {
       this.remove()
     },
     checktype (_link) {
-      if (_link === 'troopers/add') {
+      console.log(_link)
+      if (_link === 'adddroidarmy') {
         return true
-      } else if (_link === 'droid/add') {
+      } else if (_link === 'addtroopersarmy') {
         return false
       } else {
         alert('sorry')

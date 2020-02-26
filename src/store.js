@@ -2,12 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import { QUERY } from './constant'
+import { Alert } from 'element-ui'
 Vue.use(Vuex)
-Vue.notify({
-  group: 'foo',
-  title: 'Important message',
-  text: 'Hello user! This is a notification!'
-})
 export const store = new Vuex.Store({
   state: {
     armyInt: [],
@@ -27,7 +23,7 @@ export const store = new Vuex.Store({
           let post = data.data
           commit('SET_DROID', post)
         })
-        .catch(error => { alert(error) })
+        .catch(error => { Alert(error) })
     },
     getTrooper ({ commit }) {
       Axios
@@ -36,7 +32,7 @@ export const store = new Vuex.Store({
           let post = data.data
           commit('SET_TROOPER', post)
         })
-        .catch(error => { this.notify(error) })
+        .catch(error => { Alert(error) })
     },
     getResult ({ commit }) {
       Axios
@@ -45,7 +41,7 @@ export const store = new Vuex.Store({
           let post = data.data
           commit('SET_RESULT', post)
         })
-        .catch(error => { alert(error) })
+        .catch(error => { Alert(error) })
     },
     getHistory ({ commit }) {
       Axios
@@ -54,7 +50,7 @@ export const store = new Vuex.Store({
           let post = data.data
           commit('SET_HISTORY', post)
         })
-        .catch(error => { alert(error) })
+        .catch(error => { Alert(error) })
     },
     uploadCount ({ commit }) {
       let totalCount = 0
@@ -63,7 +59,7 @@ export const store = new Vuex.Store({
         .post(QUERY.POST_RESULT, { totalCount })
         .then((req, res) => {
         })
-        .catch(error => { alert(error) })
+        .catch(error => { Alert(error) })
     },
     uploadArmy ({ commit }) {
       let data = []
@@ -73,7 +69,7 @@ export const store = new Vuex.Store({
         .post(QUERY.POST_ARMY, { data })
         .then((req, res) => {
         })
-        .catch(error => { alert(error) })
+        .catch(error => { Alert(error) })
     }
   },
   mutations: {

@@ -20,7 +20,7 @@ import ArmyCard from '@/components/ArmyCard.vue'
 
 // @ is an alias to /src
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     ArmyCard
   },
