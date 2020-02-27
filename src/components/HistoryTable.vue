@@ -1,22 +1,22 @@
 <template>
 <div class="test">
-  <el-table :data="hdata" height="680"  style="width: 100%"  >
-    <el-table-column  prop="slnumber" label="slnumber" width="180" sucess> </el-table-column>
-    <el-table-column  prop="Winner"  label="Winner" width="180"> </el-table-column>
-    <el-table-column  prop="TotalBattlePoint" label="TotalBattlePoint">  </el-table-column>
-   <el-table-column  prop="TotalKill" label="TotalKill">  </el-table-column>
-    <el-table-column  prop="TotalDamage" label="TotalDamage">  </el-table-column>
+  <el-table :data="hData" height="680"  style="width: 100%"  >
+    <el-table-column  prop="id" label="ID" width="180" > </el-table-column>
+    <el-table-column  prop="winner"  label="Winner" width="180"> </el-table-column>
+    <el-table-column  prop="totalBattlePoint" label="TotalBattlePoint">  </el-table-column>
+   <el-table-column  prop="totalKill" label="TotalKill">  </el-table-column>
+    <el-table-column  prop="totalDamage" label="TotalDamage">  </el-table-column>
     <el-table-column  prop="status" label="status">  </el-table-column>
-    <el-table-column  prop="time" label="Time of battle">  </el-table-column>
+    <el-table-column  prop="createdAt" label="Time of battle">  </el-table-column>
   </el-table>
-<div style="position:fixed;bottom:0;right:0;color:white;font-size:50px">
+<div style="position:fixed;bottom:0;right:0;color:white;font-size:50px;cursor:pointer">
   <i class="el-icon-s-home"  @click="gotoHome"></i>
 </div>
 </div>
 </template>
 <script>
 export default {
-  props: ['hdata'],
+  props: ['hData'],
   methods: {
     gotoHome () {
       this.$router.push('/')

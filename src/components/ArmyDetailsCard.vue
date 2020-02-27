@@ -5,13 +5,13 @@
         <img :src="imgurl" alt />
       </div>
       <div class="flip-card-back">
-        <h2>{{armyData.Kind}}</h2>
-        <h6>{{armyData.Description}}</h6>
+        <h2>{{armyData.kind}}</h2>
+        <h6>{{armyData.description}}</h6>
         <div class="traits">
           <ul>
-            <li>Strength:{{armyData.Strength}}</li>
-            <li>Agility:{{armyData.Agility}}</li>
-            <li>Intellignce:{{armyData.Intelligence}}</li>
+            <li>Strength:{{armyData.strength}}</li>
+            <li>Agility:{{armyData.agility}}</li>
+            <li>Intellignce:{{armyData.intelligence}}</li>
           </ul>
           <ul>
             <li v-for="(tarrian) in tarrians" v-bind:key="tarrian">{{tarrian}}</li>
@@ -32,7 +32,8 @@ export default {
     }
   },
   mounted () {
-    this.tarrians = this.armyData.Terrain.split(',')
+    console.log(this.armyData)
+    this.tarrians = this.armyData.terrain.split(',')
   }
 }
 </script>

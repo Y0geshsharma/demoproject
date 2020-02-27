@@ -51,7 +51,7 @@ export default {
       } else {
         // find method
         for (var i in this.droidsTroops) {
-          if (this.droidsTroops[i].slnumber === num) {
+          if (this.droidsTroops[i].id === num) {
             this.droidsTroops[i].count = count
             break // Stop this loop, we found it!
           }

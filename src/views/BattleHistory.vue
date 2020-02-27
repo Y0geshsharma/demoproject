@@ -1,7 +1,6 @@
 <template>
     <el-row>
-
-            <HistoryTable v-bind:hdata="Historydata"/>
+            <HistoryTable v-bind:hData="Historydata"/>
     </el-row>
 </template>
 <script>

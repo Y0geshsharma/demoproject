@@ -5,10 +5,10 @@
                   <img :src="imgurl" />
             </div>
             <div class='winner-details'>
-                <p class='title'>{{result.Winner}} Won!</p>
-                 <p class='det'>Total battle points <span>{{result.TotalBattlePoint}}</span></p>
-                <p class='det'>Number of Kills <span>{{result.TotalKill}}</span></p>
-                <p class='det'>Total Damage <span>{{result.TotalDamage}}</span></p>
+                <p class='title'>{{result.winner}} Won!</p>
+                 <p class='det'>Total battle points <span>{{result.totalBattlePoint}}</span></p>
+                <p class='det'>Number of Kills <span>{{result.totalKill}}</span></p>
+                <p class='det'>Total Damage <span>{{result.totalDamage}}</span></p>
                 <div class='button-grp'>
                     <button @click="gotohistory" style="background: red"> History</button>
                     <button @click="gotoHome" style="background: blue"> Home</button>
@@ -48,13 +48,14 @@ export default {
   watch: {
     resultdata: {
       handler (val) {
+        console.log('winner data', val)
         this.result = val[0]
-        if (this.result.Winner === 'Clone Tropper') {
+        if (this.result.winner === 'Clone Tropper') {
           console.log('reached')
-          this.imgurl = '/assets/images/Troopers/41st_Elite_Corps.png'
-        } else if (this.result.Winner === 'Droid') {
+          this.imgurl = 'assets/images/Troopers/41st_Elite_Corps.png'
+        } else if (this.result.winner === 'Droid') {
           console.log('reached')
-          this.imgurl = '/assets/images/droid army/Battle_Droids.png'
+          this.imgurl = 'assets/images/droidarmy/Battle_Droids.png'
         }
       }
     }

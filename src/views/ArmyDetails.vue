@@ -58,10 +58,10 @@ export default {
   computed: {
     ...mapState({
       armies: state => {
-        return state.DroidArmy
+        return state.droid
       },
       armies1: state => {
-        return state.TroopersArmy
+        return state.trooper
       }
     })
   },

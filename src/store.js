@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import { QUERY } from './constant'
-import { Alert } from 'element-ui'
+import swal from 'sweetalert'
 Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
@@ -23,7 +23,7 @@ export const store = new Vuex.Store({
           let post = data.data
           commit('SET_DROID', post)
         })
-        .catch(error => { Alert(error) })
+        .catch(error => { swal(error) })
     },
     getTrooper ({ commit }) {
       Axios
@@ -32,7 +32,7 @@ export const store = new Vuex.Store({
           let post = data.data
           commit('SET_TROOPER', post)
         })
-        .catch(error => { Alert(error) })
+        .catch(error => { swal(error) })
     },
     getResult ({ commit }) {
       Axios
@@ -41,16 +41,17 @@ export const store = new Vuex.Store({
           let post = data.data
           commit('SET_RESULT', post)
         })
-        .catch(error => { Alert(error) })
+        .catch(error => { swal(error) })
     },
     getHistory ({ commit }) {
       Axios
         .get(QUERY.GET_HISTORY)
         .then(data => {
           let post = data.data
+          console.log('history data', post)
           commit('SET_HISTORY', post)
         })
-        .catch(error => { Alert(error) })
+        .catch(error => { swal(error) })
     },
     uploadCount ({ commit }) {
       let totalCount = 0
@@ -59,7 +60,7 @@ export const store = new Vuex.Store({
         .post(QUERY.POST_RESULT, { totalCount })
         .then((req, res) => {
         })
-        .catch(error => { Alert(error) })
+        .catch(error => { swal(error) })
     },
     uploadArmy ({ commit }) {
       let data = []
@@ -69,7 +70,7 @@ export const store = new Vuex.Store({
         .post(QUERY.POST_ARMY, { data })
         .then((req, res) => {
         })
-        .catch(error => { Alert(error) })
+        .catch(error => { swal(error) })
     }
   },
   mutations: {

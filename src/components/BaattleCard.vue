@@ -6,10 +6,10 @@
 
     <div class="army-battle-count" style="background:red">
       <div>
-        <p>{{historydata.Kind}}</p>
+        <p>{{historyData.kind}}</p>
       </div>
       <div>
-        <button @click="incrimentcount()">+</button>
+        <button @click="incrementcount()">+</button>
         <p>{{count}}</p>
         <button @click="decrementcount()">-</button>
       </div>
@@ -22,16 +22,18 @@ export default {
   data () {
     return {
       count: 0,
-      imageurl: '@/../' + this.hdata.image
+      imageurl: this.historyData.image
     }
   },
   methods: {
     incrementcount (num) {
+      console.log('check data in battlle:', this.historyData)
+
       if (this.count > 6) {
         this.count = 7
       } else {
         this.count += 1
-        this.$emit('change', this.count, this.historydata.slnumber)
+        this.$emit('change', this.count, this.historyData.id)
       }
       return this.count
     },
@@ -40,7 +42,7 @@ export default {
         this.count = 0
       } else {
         this.count -= 1
-        this.$emit('change', this.count, this.historydata.slnumber)
+        this.$emit('change', this.count, this.historyData.id)
       }
       return this.count
     }
